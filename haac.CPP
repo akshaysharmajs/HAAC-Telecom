@@ -192,7 +192,7 @@ void addrecords(struct prepaid * r1,struct postpaid * r2)
 
   char test;
 
-f.open("file.txt",std::ios_base::app);
+f.open("userdatabase.txt",std::ios_base::app);
 
 
   while(1)
@@ -281,7 +281,7 @@ void listrecords()
   int i;
 
 
-  f.open("file.txt");
+  f.open("userdatabase.txt");
 
  if(!f)
 {
@@ -327,7 +327,7 @@ void deleterecords()
  string phonenumber;
 
   t.open("temp.txt",std::ofstream::trunc);
-f.open("file.txt");
+f.open("userdatabase.txt");
 
 
 
@@ -388,9 +388,9 @@ f.open("file.txt");
      f.close();
 
     t.close();
-    remove("file.txt");
+    remove("userdatabase.txt");
 
-    rename("temp.txt","file.txt");
+    rename("temp.txt","userdatabase.txt");
 
     getch();
 
@@ -405,9 +405,9 @@ f.open("file.txt");
 
   t.close();
 
-  remove("file.txt");
+  remove("userdatabase.txt");
 
-  rename("temp.txt","file.txt");
+  rename("temp.txt","userdatabase.txt");
 
   system("cls");
 
@@ -428,13 +428,13 @@ void searchrecords()
 
   int flag=1;
 
-f.open("file.txt");
+f.open("userdatabase.txt");
 
   fflush(stdin);
 
   system("cls");
 
-cout<<"Enter Phone Number to search in our database";
+cout<<"Enter Phone Number to search in our database\n";
 
   cin>> phonenumber;
 
@@ -449,7 +449,7 @@ cout<<"Enter Phone Number to search in our database";
 
       cout<<" Record Found ";
 
-      cout<<"\n\nPhonenumber:"<<s.phonenumber<<"\nName:"<< s.name<<"\nPlamn:"<<s.type<<"\n";
+      cout<<"\n\nPhonenumber:"<<s.phonenumber<<"\nName:"<< s.name<<"\nPlan:"<<s.type<<"\n";
 
       flag=0;
 
@@ -484,7 +484,7 @@ void modifyrecords()
 
  t.open("temp.txt",std::ofstream::trunc);
 
-  f.open("file.txt");
+  f.open("userdatabase.txt");
 
   system("cls");
 
@@ -564,9 +564,9 @@ while(1)
   f.close();
 
   t.close();
-      remove("file.txt");
+      remove("userdatabase.txt");
 
-  rename("temp.txt","file.txt");
+  rename("temp.txt","userdatabase.txt");
 
   system("cls");
 
@@ -640,7 +640,7 @@ void payment(struct prepaid * r1,struct postpaid * r2)
 
   int i;
 
-  f.open("file.txt");
+  f.open("userdatabase.txt");
 
   system("cls");
 
@@ -817,7 +817,7 @@ int main()
 
   system("cls");
    s.v.clear();
-  fstream f("file.txt");
+  fstream f("userdatabase.txt");
   while(f>>s.phonenumber>>s.name>>s.type)
     s.v.push_back(s.phonenumber);
 
